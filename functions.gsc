@@ -1383,3 +1383,13 @@ togglebarriers()
         ents[index].origin = ents[index].oldori;
     }
 }
+
+
+
+togglepickradius()
+{
+    if(getdvarint("player_useradius") == 128)
+    setdvar("player_useradius",9999);
+    else
+    setdvar("player_useradius",128);
+}

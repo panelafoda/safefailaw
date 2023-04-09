@@ -347,6 +347,7 @@ Structure()
     self add_option("Toggles",  "Mid Air Prone", ::togglemidairprone,getdvar("midairprone"));
     self add_option("Toggles",  "Infinite Equipment", ::toggleinfeq,getdvar("infeq"));
     self add_option("Toggles",  "Infinite Ability", ::toggleinfiniteability,getdvar("infiniteability"));
+    self add_option("Toggles",  "Use Radius", ::togglepickradius,"[" + getdvarint("player_useradius") + "]");
 
     self create_menu("Assault rifles", "Weapons");
     self add_option("Assault rifles","AE4", ::givedaweapon,undefined,"iw5_dlcgun1_mp");
