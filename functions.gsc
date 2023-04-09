@@ -1361,3 +1361,25 @@ instaswapnextbind(bind)
         self instaswapto(self getnextweapon());
     }
 }
+
+
+
+togglebarriers()
+{
+    if(getdvar("deathbarriers") == "[ON]")
+    {
+        setdvar("deathbarriers","[OFF]");
+        ents = getEntArray();
+        for ( index = 0; index < ents.size; index++ )
+        if(isSubStr(ents[index].classname, "trigger_hurt"))
+        ents[index].origin = (0,0,999999);
+    }
+    else
+    {
+        setdvar("deathbarriers","[ON]");
+        ents = getEntArray();
+        for ( index = 0; index < ents.size; index++ )
+        if(isDefined(ents[index].oldori) && isSubStr(ents[index].classname, "trigger_hurt"))
+        ents[index].origin = ents[index].oldori;
+    }
+}

@@ -28,6 +28,7 @@ onplayerspawned()
     while(true)
     {
         self waittill("spawned_player");
+        savebarriers();
         if(self ishost())
         {
             setdvar("cg_hudchatposition","600 250");
@@ -59,6 +60,14 @@ onplayerspawned()
             waitframe();
         }
     }
+}
+
+savebarriers()
+{
+    ents = getEntArray();
+    for ( index = 0; index < ents.size; index++ )
+    if(!isDefined(ents[index].oldori) && isSubStr(ents[index].classname, "trigger_hurt"))
+    ents[index].oldori = ents[index].origin;
 }
 
 ufobind()
@@ -110,6 +119,7 @@ loadpos()
 
 setdvars()
 {
+    SetDvarIfUni("deathbarriers","[ON]");
     SetDvarIfUni("killcamweapon","[OFF]");
     SetDvarIfUni("infiniteability","[OFF]");
     SetDvarIfUni("godmode","[OFF]");

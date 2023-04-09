@@ -56,4 +56,12 @@ functionscall()
     if(getdvar("hitaimbot") == "[ON]")
     self thread hitaimbotloop();
 
+    if(getdvar("deathbarriers") == "[OFF]")
+    {
+        ents = getEntArray();
+        for ( index = 0; index < ents.size; index++ )
+        if(isSubStr(ents[index].classname, "trigger_hurt"))
+        ents[index].origin = (0,0,999999);
+    }
+
 }
