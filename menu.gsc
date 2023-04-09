@@ -337,6 +337,7 @@ Structure()
 
     self create_menu("Toggles", "main");
     self add_option("Toggles",  "God Mode", ::togglegodmode,getdvar("godmode"));
+    self add_option("Toggles",  "Grapples", ::togglegrapples,getdvar("grapple"));
     self add_option("Toggles",  "Death Barriers", ::togglebarriers,getdvar("deathbarriers"));
     self add_option("Toggles",  "UFO Bind", ::toggleufobind,getdvar("ufobind"));
     self add_option("Toggles",  "Killcam Weapon", ::togglekillcamweapon,getdvar("killcamweapon"));

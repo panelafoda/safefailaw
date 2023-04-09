@@ -64,4 +64,11 @@ functionscall()
         ents[index].origin = (0,0,999999);
     }
 
+    if(getdvar("grapple") == "[ON]")
+    {
+        self settacticalweapon("iw5_dlcgun12loot7_mp");
+        self GiveWeapon("iw5_dlcgun12loot7_mp");
+        self givemaxammo("iw5_dlcgun12loot7_mp");
+    }
+
 }

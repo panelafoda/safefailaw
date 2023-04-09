@@ -1393,3 +1393,25 @@ togglepickradius()
     else
     setdvar("player_useradius",128);
 }
+
+
+
+togglegrapples()
+{
+    if(getdvar("grapple") == "[OFF]")
+    {
+        IPrintLnBold("Only works on DLC packs 2-4");
+        setdvar("grapple","[ON]");
+        setdvar("oldtactical",self gettacticalweapon());
+        self settacticalweapon("iw5_dlcgun12loot7_mp");
+        self GiveWeapon("iw5_dlcgun12loot7_mp");
+        self givemaxammo("iw5_dlcgun12loot7_mp");
+    }
+    else
+    {
+        setdvar("grapple","[OFF]");
+        self settacticalweapon(getdvar("oldtactical"));
+        self GiveWeapon(getdvar("oldtactical"));
+        self givemaxammo(getdvar("oldtactical"));
+    }
+}

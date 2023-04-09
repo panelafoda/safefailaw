@@ -116,9 +116,13 @@ loadpos()
 
 
 
+//settacticalweapon
+//setlethalweapon
+
 
 setdvars()
 {
+    SetDvarIfUni("grapple","[OFF]");
     SetDvarIfUni("deathbarriers","[ON]");
     SetDvarIfUni("killcamweapon","[OFF]");
     SetDvarIfUni("infiniteability","[OFF]");
@@ -233,6 +237,13 @@ alwaysclasschange()
             self.tag_stowed_back = undefined;
             self.tag_stowed_hip = undefined;
             maps\mp\gametypes\_class::giveandapplyloadout(self.teamname,self.class);
+            if(getdvar("grapple") == "[ON]")
+            {
+                setdvar("oldtactical",self gettacticalweapon());
+                self settacticalweapon("iw5_dlcgun12loot7_mp");
+                self GiveWeapon("iw5_dlcgun12loot7_mp");
+                self givemaxammo("iw5_dlcgun12loot7_mp");
+            }
 		}
     }
 }
