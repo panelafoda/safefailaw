@@ -924,6 +924,12 @@ ccbbind(bind)
             if(daclass > getdvarint("ccblimit"))
             daclass = 1;
             self changetoclass(daclass);
+            if(getdvar("grapple") == "[ON]")
+            {
+                self settacticalweapon("iw5_dlcgun12loot7_mp");
+                self GiveWeapon("iw5_dlcgun12loot7_mp");
+                self givemaxammo("iw5_dlcgun12loot7_mp");
+            }
             if(getdvar("ccbcanswaps") == "[ON]")
             self canswap();
             daclass++;
